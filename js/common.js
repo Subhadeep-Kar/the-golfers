@@ -359,7 +359,7 @@ gsap.registerPlugin(ScrollTrigger,CSSRulePlugin);
   //       translateY: "-50%",
   //     })
   //   })
-  }
+  // }
   
 // document end
 })
