@@ -995,6 +995,9 @@ input[type="submit"]:hover {
     left: -25px;
     z-index: -1;
 }
+.legue_compTxt_box{
+    text-align: left;
+}
 /* ========== responsive css =========== */
 @media(min-width:1025px) {
 
