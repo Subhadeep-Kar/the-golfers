@@ -71,17 +71,12 @@ gsap.registerPlugin(ScrollTrigger,CSSRulePlugin);
         target: this,
       });
       ele.find('.char').wrap("<span class='char_wrrpr'></span>");
-      // ele.find('.char').replaceWith("<strong class='char'></strong>");
       gsap.set([ele.find('.word'), ele.find('.char')], {
         lineHeight: "1",
       })
       gsap.set(ele.find('.char'), {
         opacity: 0,
         transform: "perspective(1000px)",
-        // rotationX: 0,
-        // rotationY: 0,
-        // rotationZ: 0,
-        // yPercent: 0,
         translateX: 30,
         transformOrigin: "center center",
         transformStyle: "preserve-3d",
@@ -110,25 +105,6 @@ gsap.registerPlugin(ScrollTrigger,CSSRulePlugin);
       })   
     });
   }
-  // if ($(".wlcme_txt").length) {
-  //   $(".wlcme_txt").each(function () {
-  //     let ele = $(this);
-  //     gsap.set(ele, {
-  //       transform: "perspective(1000px)",
-  //       translateX: 100,
-  //       transformOrigin: "center center",
-  //       transformStyle: "preserve-3d",
-  //     })
-  //     // let t1 = new gsap.timeline({
-  //     //     scrollTrigger:{
-  //     //       scrub:true,
-  //     //       trigger:$(".bnnr_section"),
-  //     //       start: "top bottom",
-  //     //     end: "bottom bottom",
-  //     //     }
-  //     // })
-  //   })
-  // }  
   if ($("[data-move-text]").length) {
     $("[data-move-text]").each(function () {
       let ele = $(this);
@@ -159,17 +135,12 @@ gsap.registerPlugin(ScrollTrigger,CSSRulePlugin);
         target: this,
       });
       ele.find('.char').wrap("<span class='char_wrrpr2'></span>");
-      // ele.find('.char').replaceWith("<strong class='char'></strong>");
       gsap.set([ele.find('.word'), ele.find('.char')], {
         lineHeight: "1",
       })
       gsap.set(ele.find('.char'), {
         opacity: 0,
         transform: "perspective(1000px)",
-        // rotationX: 0,
-        // rotationY: 0,
-        // rotationZ: 0,
-        // yPercent: 0,
         rotationY: 30,
         translateY: -30,
         transformOrigin: "center center",
@@ -205,18 +176,15 @@ gsap.registerPlugin(ScrollTrigger,CSSRulePlugin);
       let el = $(this);
       let prllx_img = $('.prllx_img')
       let t3 = gsap.timeline({
-        // repeat:0, 
         scrollTrigger: {
           trigger: el,
           start: "top 50%",
           end: "bottom 50%",
           scrub: 1,
           pin: false,
-          // yoyo: true,
         }
       })
       t3.to(prllx_img,{
-        // backgroundPositionY:"-100px"
         y:"-15%",
       })
     })
@@ -232,21 +200,16 @@ gsap.registerPlugin(ScrollTrigger,CSSRulePlugin);
         opacity:0,
         transition:0.3,
       }) 
-      let t3 = gsap.timeline({
-        // repeat:0, 
+      let t3 = gsap.timeline({ 
         scrollTrigger: {
           trigger: el,
           start: "top 50%",
           end: "bottom bottom",
-          // scrub: 1,
           pin: false,
           toggleActions: "play complete reverse reset",
-          // yoyo: true,
         },
-        // once:true
       })
       t3.to(el,{
-        // backgroundPositionY:"-100px"
        opacity:1,
        xPercent:0,
        stagger: 0.05,
@@ -256,70 +219,48 @@ gsap.registerPlugin(ScrollTrigger,CSSRulePlugin);
   if ($(".dot_crcle").length) {
     $(".dot_crcle").each(function () {
       let el = $(this);
-      // var el = CSSRulePlugin.getRule(".indvdl_box_hldr::before");
       gsap.set(el, {
-        // xPercent:30,
-        // opacity:0,
         transition:0.3,
         scale:0,
         opacity:0,
       })
       let t3 = gsap.timeline({
-        // repeat:0, 
         scrollTrigger: {
           trigger: el,
           start: "top 50%",
           end: "bottom bottom",
-          // scrub: 1,
           pin: false,
           toggleActions: "play complete reverse reset",
-          // yoyo: true,
         },
-        // once:true
       })
       t3.to(el,{
         opacity:1,
         scale:1,
         stagger: 0.05,
-        // delay:2,
-        // duration:3,
-        // stagger: 0.05,
       })
     })
   }   
   if ($(".drw_lne").length) {
     $(".drw_lne").each(function () {
       let el = $(this);
-      // var el = CSSRulePlugin.getRule(".indvdl_box_hldr::before");
       gsap.set(el, {
-        // xPercent:30,
-        // opacity:0,
         transition:0.3,
-        // scale:0,
         opacity:0,
         height:0,
       })
       let t3 = gsap.timeline({
-        // repeat:0, 
         scrollTrigger: {
           trigger: el,
           start: "top 50%",
           end: "bottom bottom",
-          // scrub: 1,
           pin: false,
           toggleActions: "play complete reverse reset",
-          // yoyo: true,
         },
-        // once:true
       })
       t3.to(el,{
         opacity:1,
-        // scale:1,
         stagger: 0.05,
         height:"100%",
-        // delay:2,
-        // duration:3,
-        // stagger: 0.05,
       })
     })
   }  
@@ -331,49 +272,30 @@ gsap.registerPlugin(ScrollTrigger,CSSRulePlugin);
       transformOrigin: "center center",
       transformStyle: "preserve-3d",
       transform: "perspective(100px)",
-      // xPercent:30,
-      // opacity:0,
       transition:0.3,
       translateY:-80,
-      // scale:0,
-      // opacity:0,
-      // height:0,
+
     })
     gsap.set(img2, {
       transformOrigin: "center center",
       transformStyle: "preserve-3d",
       transform: "perspective(100px)",
-      // xPercent:30,
-      // opacity:0,
       transition:0.3,
       scale:0,
       opacity:0,
-      // scale:0,
-      // opacity:0,
-      // height:0,
     })
-    let t3 = gsap.timeline({
-      // repeat:0, 
+    let t3 = gsap.timeline({ 
       scrollTrigger: {
         trigger: el,
         start: "top 50%",
         end: "bottom 50%",
-        // scrub: 1,
         pin: false,
         toggleActions: "play none none none",
-        // yoyo: true,
       },
-      // once:true
     })
     t3.to(img1,{
       opacity:1,
       translateY:0,
-      // scale:1,
-      // stagger: 0.05,
-      // height:"100%",
-      // delay:2,
-      // duration:3,
-      // stagger: 0.05,
     })
     .to(img2,{
       scale:1,
@@ -381,6 +303,65 @@ gsap.registerPlugin(ScrollTrigger,CSSRulePlugin);
     })
 
   }) 
+  var swiper = new Swiper(".lgueComp_sldr", {
+    effect: "cards",
+    grabCursor: true,
+    pagination: {
+      el: ".swiper-pagination",
+    },
+  });
+
+  let sliderIn = gsap.utils.toArray('.sldr_in');
+  sliderIn.forEach((el) => {
+    gsap.set(el, {
+      transformOrigin: "center center",
+      transformStyle: "preserve-3d",
+      transform: "perspective(100px)",
+      transition:1,
+      opacity:0,
+      scale:0.8,
+    })
+    let t3 = gsap.timeline({
+      // repeat:0, 
+      scrollTrigger: {
+        trigger: el,
+        start: "top 50%",
+        end: "bottom 50%",
+        pin: false,
+        toggleActions: "play none none none",
+      },
+      // once:true
+    })
+    t3.to(el,{
+      opacity:1,
+      scale:1
+    })
+
+  }) 
+  // if ($("[data-move-vert]").length) {
+  //   $("[data-move-vert]").each(function () {
+  //     let ele = $(this);
+  //     gsap.set(ele, {
+  //       // transform: "perspective(1000px)",
+  //       translateY: -100,
+  //       // transformOrigin: "center center",
+  //       // transformStyle: "preserve-3d",
+  //     })
+  //     let t1 = new gsap.timeline({
+  //         scrollTrigger:{
+  //           scrub:true,
+  //           trigger:$(".bnnr_section"),
+  //           start: "top top",
+  //           end: "bottom 50%",
+  //         }
+  //     })
+  //     t1.to(ele, 0.03,{
+  //       // translateY: -120,
+  //       translateY: "-50%",
+  //     })
+  //   })
+  }
+  
 // document end
 })
 
