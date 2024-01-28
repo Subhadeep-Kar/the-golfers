@@ -194,7 +194,6 @@ gsap.registerPlugin(ScrollTrigger,CSSRulePlugin);
       let el = $(this);
       // var rule = CSSRulePlugin.getRule(".indvdl_box_hldr::before");
       // var rule2 = CSSRulePlugin.getRule(".indvdl_box_hldr::after");
-      // let prllx_img = $('.prllx_img')
       gsap.set(el, {
         xPercent:30,
         opacity:0,
