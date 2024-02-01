@@ -302,11 +302,46 @@ gsap.registerPlugin(ScrollTrigger,CSSRulePlugin);
     })
 
   }) 
-  var swiper = new Swiper(".lgueComp_sldr", {
+  const swiper = new Swiper(".lgueComp_sldr", {
     effect: "cards",
     grabCursor: true,
+    // loop:true,
+    // centeredSlides:true,
+    // loopAddBlankSlides:true,
+    // loopAdditionalSlides:1,
+    // initialSlide: 1,
+    // slidesPerView: "1",
+    cardsEffect: {
+      slideShadows: false,
+      perSlideRotate:8,
+      perSlideOffset:2,
+    },
     pagination: {
       el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
+
+
+  const swiper1 = new Swiper(".lgue_sldr", {
+    effect: "cards",
+    grabCursor: true,
+    // inverse:true,
+    // initialSlide: 1,
+    loop:true,
+    centeredSlides:true,
+    slidesPerView: "3",
+    // oneWayMovement:true,
+    // loopAddBlankSlides:true,
+    // loopAdditionalSlides:1,
+    cardsEffect: {
+      slideShadows: false,
+      perSlideRotate:5.25,
+      perSlideOffset:3,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
     },
   });
 
@@ -360,7 +395,58 @@ gsap.registerPlugin(ScrollTrigger,CSSRulePlugin);
   //     })
   //   })
   // }
-  
+  // const swiper2 = new Swiper(".cmpttn_sldr", {
+  //   effect: "coverflow",
+  //   grabCursor: true,
+  //   // initialSlide: 1,
+  //   invert:true,
+  //   // slidesPerGroup:2,
+  //   loop:true,
+  //   // loopAddBlankSlides:true,
+  //   // centeredSlides:true,
+  //   coverflowEffect: {
+  //     rotate: 0,
+  //     slideShadows: false,
+  //     stretch:30,
+  //     depth:100,
+  //     modifier:2,
+  //     // scale:1.1,
+  //   },
+  //   pagination: {
+  //     el: ".swiper-pagination",
+  //     clickable: true,
+  //   },
+  // });
+  const swiper2 = new Swiper(".cmpttn_sldr", {
+    effect: "coverflow",
+    grabCursor: true,
+    initialSlide: 1,
+    invert:true,
+    slidesPerView: "1",
+    oneWayMovement:true,
+    // slidesPerGroup:2,
+    loop:true,
+    loopAddBlankSlides:true,
+    centeredSlides:true,
+    coverflowEffect: {
+          rotate: 0,
+          slideShadows: false,
+          stretch:250,
+          depth:100,
+          modifier:2,
+          // scale:1.1,
+        },
+    // cardsEffect: {
+    //   perSlideRotate:0,
+    //   rotate:0,
+    //   perSlideOffset:25,
+    //   slideShadows: false,
+    // },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
 // document end
 })
 
