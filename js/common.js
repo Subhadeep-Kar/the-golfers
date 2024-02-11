@@ -123,7 +123,8 @@ gsap.registerPlugin(ScrollTrigger,CSSRulePlugin);
           }
       })
       t1.to(ele, 0.03,{
-        translateX: "30vw",
+        translateX: "100vw",
+        duration:3,
       })
     })
   } 
@@ -189,32 +190,115 @@ gsap.registerPlugin(ScrollTrigger,CSSRulePlugin);
       })
     })
   }   
-  if ($(".indvdl_insght_box").length) {
-    $(".indvdl_insght_box").each(function () {
-      let el = $(this);
-      // var rule = CSSRulePlugin.getRule(".indvdl_box_hldr::before");
-      // var rule2 = CSSRulePlugin.getRule(".indvdl_box_hldr::after");
-      gsap.set(el, {
-        xPercent:30,
-        opacity:0,
-        transition:0.3,
-      }) 
-      let t3 = gsap.timeline({ 
-        scrollTrigger: {
-          trigger: el,
-          start: "top 50%",
-          end: "bottom bottom",
-          pin: false,
-          toggleActions: "play complete reverse reset",
-        },
+
+  const dotCrcle = gsap.utils.toArray(".dot_crcle");
+     function aa(){
+      dotCrcle.forEach(() =>{
+        let el = this;
+            gsap.set(el, {
+              transition:0.3,
+              scale:0,
+              opacity:0,
+            })
+            let t3 = gsap.timeline({
+              scrollTrigger: {
+                trigger: el,
+                start: "top 50%",
+                end: "bottom bottom",
+                pin: false,
+                toggleActions: "play complete reverse reset",
+              },
+            })
+            t3.to(el,{
+              opacity:1,
+              scale:1,
+              stagger: 0.05,
+            })
       })
-      t3.to(el,{
-       opacity:1,
-       xPercent:0,
-       stagger: 0.05,
-      })
+    }
+  // if ($(".indvdl_insght_box").length) {
+  //   $(".indvdl_insght_box").each(function () {
+  //     let el = $(this);
+  //     // var rule = CSSRulePlugin.getRule(".indvdl_box_hldr::before");
+  //     // var rule2 = CSSRulePlugin.getRule(".indvdl_box_hldr::after");
+  //     // let lineAnim = el.querySelectorAll()
+  //     gsap.set(el, {
+  //       xPercent:30,
+  //       opacity:0,
+  //       transition:0.3,
+  //     }) 
+      
+  //     let t3 = gsap.timeline({ 
+  //       scrollTrigger: {
+  //         trigger: el,
+  //         start: "top 50%",
+  //         end: "bottom bottom",
+  //         pin: false,
+  //         toggleActions: "play complete reverse reset",
+  //       },
+  //     })
+  //     t3.to(el,{
+  //      opacity:1,
+  //      xPercent:0,
+  //      stagger: 0.05,
+  //     })
+  //     .call(aa)
+  //   })
+  // }   
+
+  let indvdlBoxAnim = gsap.utils.toArray('.indvdl_box_hldr');
+  indvdlBoxAnim.forEach((elem,i) => {
+    const boxAnim = elem.querySelectorAll('.indvdl_insght_box');
+    console.log(boxAnim);
+    gsap.set(boxAnim, {
+      xPercent:30,
+      opacity:0,
+      transition:0.3,
+    }) 
+    let t3 = gsap.timeline({
+      scrollTrigger: {
+        trigger: elem,
+        start: "top 50%",
+        end: "bottom bottom",
+        pin: false,
+        toggleActions: "play complete reverse reset",
+      },
     })
-  }   
+    t3.to(boxAnim, {
+      opacity: 1,
+      xPercent: 0,
+      stagger: 0.05,
+    })
+  })
+  // if ($(".indvdl_insght_box").length) {
+  //   $(".indvdl_insght_box").each(function () {
+  //     let el = $(this);
+  //     // var rule = CSSRulePlugin.getRule(".indvdl_box_hldr::before");
+  //     // var rule2 = CSSRulePlugin.getRule(".indvdl_box_hldr::after");
+  //     // let lineAnim = el.querySelectorAll()
+  //     gsap.set(el, {
+  //       xPercent:30,
+  //       opacity:0,
+  //       transition:0.3,
+  //     }) 
+      
+  //     let t3 = gsap.timeline({ 
+  //       scrollTrigger: {
+  //         trigger: el,
+  //         start: "top 50%",
+  //         end: "bottom bottom",
+  //         pin: false,
+  //         toggleActions: "play complete reverse reset",
+  //       },
+  //     })
+  //     t3.to(el,{
+  //      opacity:1,
+  //      xPercent:0,
+  //      stagger: 0.05,
+  //     })
+  //     .call(aa)
+  //   })
+  // }   
   if ($(".dot_crcle").length) {
     $(".dot_crcle").each(function () {
       let el = $(this);
@@ -326,6 +410,7 @@ gsap.registerPlugin(ScrollTrigger,CSSRulePlugin);
   const swiper1 = new Swiper(".lgue_sldr", {
     effect: "cards",
     grabCursor: true,
+    allowSlideNext:false,
     // inverse:true,
     // initialSlide: 1,
     loop:true,
@@ -366,35 +451,35 @@ gsap.registerPlugin(ScrollTrigger,CSSRulePlugin);
       },
       // once:true
     })
-    t3.to(el,{
+    t3.to(el,2,{
       opacity:1,
       scale:1
     })
 
   }) 
-  // if ($("[data-move-vert]").length) {
-  //   $("[data-move-vert]").each(function () {
-  //     let ele = $(this);
-  //     gsap.set(ele, {
-  //       // transform: "perspective(1000px)",
-  //       translateY: -100,
-  //       // transformOrigin: "center center",
-  //       // transformStyle: "preserve-3d",
-  //     })
-  //     let t1 = new gsap.timeline({
-  //         scrollTrigger:{
-  //           scrub:true,
-  //           trigger:$(".bnnr_section"),
-  //           start: "top top",
-  //           end: "bottom 50%",
-  //         }
-  //     })
-  //     t1.to(ele, 0.03,{
-  //       // translateY: -120,
-  //       translateY: "-50%",
-  //     })
-  //   })
-  // }
+  if ($("[data-move-vert]").length) {
+    $("[data-move-vert]").each(function () {
+      let ele = $(this);
+      gsap.set(ele, {
+        // transform: "perspective(1000px)",
+        translateY: "-100%",
+        // transformOrigin: "center center",
+        // transformStyle: "preserve-3d",
+      })
+      let t1 = new gsap.timeline({
+          scrollTrigger:{
+            scrub:true,
+            trigger:ele,
+            start: "top top",
+            end: "bottom 50%",
+          }
+      })
+      t1.to(ele,{
+        // translateY: -120,
+        translateY: "-50%",
+      })
+    })
+  }
   // const swiper2 = new Swiper(".cmpttn_sldr", {
   //   effect: "coverflow",
   //   grabCursor: true,
@@ -421,7 +506,7 @@ gsap.registerPlugin(ScrollTrigger,CSSRulePlugin);
     effect: "coverflow",
     grabCursor: true,
     initialSlide: 1,
-    invert:true,
+    // invert:true,
     slidesPerView: "1",
     oneWayMovement:true,
     // slidesPerGroup:2,
@@ -447,6 +532,198 @@ gsap.registerPlugin(ScrollTrigger,CSSRulePlugin);
       clickable: true,
     },
   });
+  const swiper4 = new Swiper(".clbrty_sldr", {
+    // effect: "cards",
+    grabCursor: true,
+    // loop:true,
+    // centeredSlides:true,
+    // loopAddBlankSlides:true,
+    // loopAdditionalSlides:1,
+    // initialSlide: 1,
+    // slidesPerView: "1",
+    // cardsEffect: {
+    //   slideShadows: false,
+    //   perSlideRotate:8,
+    //   perSlideOffset:2,
+    // },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
+
+  const swiper5 = new Swiper(".tstmnl_sldr", {
+    // effect: "cards",
+    grabCursor: true,
+    loop:true,
+    slidesPerView: 3,
+    spaceBetween: 26,
+    centeredSlides:true,
+    freeMode: true,
+    loopAddBlankSlides:true,
+    // loopAdditionalSlides:1,
+    // initialSlide: 1,
+    // slidesPerView: "1",
+    // cardsEffect: {
+    //   slideShadows: false,
+    //   perSlideRotate:8,
+    //   perSlideOffset:2,
+    // },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+
+  let btnAnim = gsap.utils.toArray('.bttn_lstng');
+
+  btnAnim.forEach((el) => {
+    gsap.set(el, {
+      transformOrigin: "center center",
+      transformStyle: "preserve-3d",
+      transform: "perspective(100px)",
+      transition:1,
+      opacity:0,
+      // scale:0.8,
+      translateY:100,
+    })
+    let t3 = gsap.timeline({
+      // repeat:0, 
+      scrollTrigger: {
+        trigger: el,
+        start: "top 50%",
+        end: "bottom 50%",
+        pin: false,
+        toggleActions: "play none none none",
+      },
+      // once:true
+    })
+    t3.to(el,{
+      opacity:1,
+      // scale:1,
+      translateY:0,
+    })
+
+  }) 
+
+  let sectionAnim = gsap.utils.toArray('.anim_section');
+
+  sectionAnim.forEach((el) => {
+    leftAnim = el.querySelector("[data-left-element]");
+    rightAnim = el.querySelector("[data-right-element]");
+
+    // console.log(leftAnim);
+    gsap.set(leftAnim, {
+      transformOrigin: "center center",
+      transformStyle: "preserve-3d",
+      transform: "perspective(100px)",
+      // transition:1,
+      opacity:0,
+      scale:0.3,
+      // translateY:100,
+    })
+    gsap.set(rightAnim, {
+      transformOrigin: "center center",
+      transformStyle: "preserve-3d",
+      transform: "perspective(100px)",
+      // transition:1,
+      opacity:0,
+      // scale:0.3,
+      translateY:100,
+    })
+
+    let t3 = gsap.timeline({
+      // repeat:0, 
+      scrollTrigger: {
+        trigger: el,
+        start: "top 50%",
+        end: "bottom 50%",
+        pin: false,
+        toggleActions: "play none none none",
+      },
+      // once:true
+    })
+    t3.to(leftAnim,{
+      opacity:1,
+      scale:1,
+      // translateY:0,
+    })
+    .to(rightAnim,{
+      opacity:1,
+      // scale:1,
+      translateY:0,
+    })
+
+  }) 
+
+  let moveSide = gsap.utils.toArray("[move-side-element]");
+
+  moveSide.forEach((el) => {
+    // moveUpAnim = el.querySelector("[move-up-element]");
+
+    // console.log(leftAnim);
+    gsap.set(el, {
+      transformOrigin: "center center",
+      transformStyle: "preserve-3d",
+      transform: "perspective(100px)",
+      // transition:1,
+      opacity:0,
+      // scale:0.3,
+      translateX:100,
+    })
+    let t3 = gsap.timeline({
+      // repeat:0, 
+      scrollTrigger: {
+        trigger: el,
+        start: "top 50%",
+        end: "bottom 50%",
+        pin: false,
+        toggleActions: "play none none none",
+      },
+      // once:true
+    })
+    t3.to(el,{
+      opacity:1,
+      // scale:1,
+      translateX:0,
+    })
+
+  }) 
+
+  // let moveUp = gsap.utils.toArray("[move-up-element]");
+
+  // moveUp.forEach((el) => {
+  //   // moveUpAnim = el.querySelector("[move-up-element]");
+
+  //   // console.log(leftAnim);
+  //   gsap.set(el, {
+  //     transformOrigin: "center center",
+  //     transformStyle: "preserve-3d",
+  //     transform: "perspective(100px)",
+  //     // transition:1,
+  //     opacity:0,
+  //     scale:0,
+  //     // translateX:100,
+  //   })
+  //   let t3 = gsap.timeline({
+  //     // repeat:0, 
+  //     scrollTrigger: {
+  //       trigger: el,
+  //       start: "top top",
+  //       end: "bottom 10%",
+  //       pin: false,
+  //       toggleActions: "play none none none",
+  //     },
+  //     // once:true
+  //   })
+  //   t3.to(el,{
+  //     opacity:1,
+  //     scale:1,
+  //     // translateX:0,
+  //   })
+
+  // }) 
+
 // document end
 })
 
